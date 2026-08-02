@@ -1,134 +1,149 @@
-// ===============================
-// COUNTDOWN ULANG TAHUN
-// ===============================
+/* ==========================================
+   HAPPY BIRTHDAY PREMIUM
+   SCRIPT.JS
+========================================== */
 
-// Atur tanggal ulang tahun disini
-let targetDate = new Date("August 26, 2026 00:00:00").getTime();
+"use strict";
 
+/* ==========================================
+   TARGET TANGGAL
+========================================== */
 
-let countdown = setInterval(function(){
-
-    let now = new Date().getTime();
-
-    let distance = targetDate - now;
-
-
-    let hari = Math.floor(
-        distance / (1000 * 60 * 60 * 24)
-    );
+const targetDate = new Date("August 26, 2026 00:00:00").getTime();
 
 
-    let jam = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) /
-        (1000 * 60 * 60)
-    );
+/* ==========================================
+   TANGGAL HARI INI
+========================================== */
+
+const nowDate = new Date();
+
+const hari = [
+"Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"
+];
+
+const bulan = [
+"Januari","Februari","Maret","April","Mei","Juni",
+"Juli","Agustus","September","Oktober","November","Desember"
+];
+
+document.getElementById("tanggalSekarang").innerHTML =
+"📅 " +
+hari[nowDate.getDay()] + ", " +
+nowDate.getDate() + " " +
+bulan[nowDate.getMonth()] + " " +
+nowDate.getFullYear();
 
 
-    let menit = Math.floor(
-        (distance % (1000 * 60 * 60)) /
-        (1000 * 60)
-    );
+/* ==========================================
+   COUNTDOWN
+========================================== */
 
+const countdown = setInterval(function(){
 
-    let detik = Math.floor(
-        (distance % (1000 * 60)) /
-        1000
-    );
+    const now = new Date().getTime();
 
+    const distance = targetDate - now;
 
-    document.getElementById("timer").innerHTML =
-    hari + " Hari " +
-    jam + " Jam " +
-    menit + " Menit " +
-    detik + " Detik";
-
-
-    // Jika waktu habis
-    if(distance < 0){
+    if(distance <= 0){
 
         clearInterval(countdown);
 
         document.getElementById("timer").innerHTML =
-        "?? HAPPY BIRTHDAY ??";
+        "🎉 HAPPY BIRTHDAY SAYANGKU HAHA SEMOGAA PANJANG UMUR NYA YAA SEMOGA REZEKI NYA LANCAR TERUS JAGA KESEHATAN NYA OKEI  🎉";
+
+        document.body.classList.add("birthday");
+
+        return;
 
     }
 
+    const d = Math.floor(distance/(1000*60*60*24));
+    const h = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+    const m = Math.floor((distance%(1000*60*60))/(1000*60));
+    const s = Math.floor((distance%(1000*60))/1000);
+
+    document.getElementById("timer").innerHTML =
+    d+" Hari "+
+    h+" Jam "+
+    m+" Menit "+
+    s+" Detik";
 
 },1000);
 
 
+/* ==========================================
+   PUTAR MUSIK
+========================================== */
 
+function playMusic(){
 
+    let music = document.getElementById("music");
 
-// ===============================
-// TOMBOL HADIAH
-// ===============================
+    if(music){
 
-function openGift(){
-
-    let box=document.querySelector(".gift-box");
-
-    box.classList.add("open");
-
-
-    document.getElementById("gift").style.display="block";
-
-
-    for(let i=0;i<15;i++){
-
-        let star=document.createElement("div");
-
-        star.innerHTML="?";
-
-        star.className="sparkle";
-
-
-        star.style.left=Math.random()*100+"%";
-
-        star.style.top="40%";
-
-
-        document.body.appendChild(star);
-
-
-        setTimeout(()=>{
-
-            star.remove();
-
-        },2000);
+        music.play().catch(()=>{});
 
     }
 
 }
 
 
+/* ==========================================
+   BUKA KADO
+========================================== */
+
+function openGift(){
+
+    let now = new Date().getTime();
+
+    if(now < targetDate){
+
+        alert(
+        "🎁 Kado masih terkunci!\n\n" +
+        "Kado baru bisa dibuka\n" +
+        "26 Agustus 2026 ❤️"
+        );
+
+        return;
+
+    }
+
+    let box = document.querySelector(".gift-box");
+
+    if(box){
+
+        box.classList.add("open");
+
+    }
+
+    document.getElementById("gift").style.display="block";
+
+    playMusic();
+
+}
 
 
-// ===============================
-// ANIMASI HATI TERBANG
-// ===============================
+/* ==========================================
+   HATI TERBANG
+========================================== */
 
 function createHeart(){
 
-    let heart=document.createElement("div");
-
-    heart.innerHTML="??";
+    let heart = document.createElement("div");
 
     heart.className="heart";
 
+    heart.innerHTML="❤️";
 
-    heart.style.left =
-    Math.random()*100+"%";
+    heart.style.left=Math.random()*100+"%";
 
-
-    heart.style.animationDuration =
+    heart.style.animationDuration=
     (Math.random()*3+3)+"s";
-
 
     document.body.appendChild(heart);
 
-
-    setTimeout(()=>{
+    setTimeout(function(){
 
         heart.remove();
 
@@ -136,16 +151,4 @@ function createHeart(){
 
 }
 
-
 setInterval(createHeart,500);
-// ===============================
-// MUSIK ULANG TAHUN
-// ===============================
-
-function playMusic(){
-
-    let music = document.getElementById("music");
-
-    music.play();
-
-}
