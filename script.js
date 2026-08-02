@@ -138,3 +138,14 @@ function createHeart(){
 
 
 setInterval(createHeart,500);
+// ===============================
+// MUSIK ULANG TAHUN
+// ===============================
+
+function playMusic(){
+
+    let music = document.getElementById("music");
+
+    music.play();
+
+}
