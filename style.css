@@ -495,3 +495,38 @@ h1{
     0 0 20px #8e2de2;
 
 }
+.love{
+
+position:fixed;
+
+bottom:-50px;
+
+animation:loveFly linear forwards;
+
+z-index:10;
+
+}
+
+
+@keyframes loveFly{
+
+0%{
+
+transform:translateY(0) scale(1);
+
+opacity:1;
+
+}
+
+
+100%{
+
+transform:
+translateY(-110vh)
+scale(1.5);
+
+opacity:0;
+
+}
+
+}
