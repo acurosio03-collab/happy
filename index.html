@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
+
 <head>
-<title>Happy Birthday ❤️</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>🎂 Happy Birthday 🎂</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -10,106 +16,139 @@
 
 <body>
 
-<audio id="music" loop>
-    <source src="musik.mp3" type="audio/mp3">
-</audio>
-
-<button onclick="playMusic()" class="music-btn">
-🎵 Putar Musik
-</button>
-<div class="stars"></div>
-
+<div class="overlay"></div>
 
 <div class="container">
 
-<h1>
-🎉 Happy Birthday 🎉
-</h1>
+    <!-- Judul -->
+    <h1 class="title">
+        🎉 Happy Birthday 🎉
+    </h1>
 
-<h2>
-Untuk: <span>DONAHARA ANNA RIZKI</span>
-</h2>
+    <h2 class="subtitle">
+        Untuk
+        <span>Nama Orang Spesial</span>
+    </h2>
 
+    <!-- Tanggal Hari Ini -->
+    <div id="tanggalSekarang" class="date"></div>
 
-<div class="photo">
-<img src="ara.jpeg">
-</div>
-
-
-<p class="text">
-Selamat ulang tahun ❤️<br>
-Semoga panjang umur, sehat selalu,
-semua impian menjadi kenyataan,
-dan selalu diberikan kebahagiaan ✨
-</p>
-
-
-<div class="cake">
-
-<div class="flame"></div>
-
-<div class="candle"></div>
-
-<div class="cake-top"></div>
-<div class="cake-mid"></div>
-<div class="cake-bottom"></div>
-
-</div>
-
-
-
-<div class="countdown">
-
-<h3>Menuju Hari Spesial</h3>
-
-<div id="timer">
-00 : 00 : 00 : 00
-</div>
-
-</div>
-
-
-
-<div class="gift-box" onclick="openGift()">
-
-    <div class="lid">
+    <!-- Foto -->
+    <div class="photo">
+        <img src="ara.jpg" alt="Foto">
     </div>
 
-    <div class="box">
+    <!-- Ucapan -->
+    <div class="message">
+
+        <p>
+
+            Selamat ulang tahun ❤️
+
+            <br><br>
+
+            Semoga panjang umur,
+            sehat selalu,
+            selalu diberikan kebahagiaan,
+            dimudahkan rezekinya,
+            dan semua impianmu menjadi kenyataan.
+
+            <br><br>
+
+            Terima kasih sudah menjadi
+            orang yang sangat berarti.
+
+            🎂❤️
+
+        </p>
+
     </div>
 
+    <!-- Countdown -->
+    <div class="countdown">
+
+        <h3>
+            ⏳ Menuju Hari Spesial
+        </h3>
+
+        <div id="timer">
+
+            00 Hari
+            00 Jam
+            00 Menit
+            00 Detik
+
+        </div>
+
+    </div>
+
+    <!-- Kado -->
+    <div class="gift-box"
+         onclick="openGift()">
+
+        <div class="lid"></div>
+
+        <div class="box"></div>
+
+    </div>
+
+    <button onclick="openGift()">
+        🎁 Buka Kado
+    </button>
+
+    <div id="gift">
+
+        <h2>💖 Surprise 💖</h2>
+
+        <p>
+
+            Semoga hari ini menjadi
+            awal dari semua kebahagiaanmu.
+
+            <br><br>
+
+            Jangan pernah berhenti
+            tersenyum ya.
+
+            ❤️❤️❤️
+
+        </p>
+
+    </div>
+
+    <!-- Musik -->
+    <audio id="music" loop>
+
+        <source
+        src="musik.mp3"
+        type="audio/mp3">
+
+    </audio>
+
+    <button
+    class="music-btn"
+    onclick="playMusic()">
+
+        🎵 Putar Musik
+
+    </button>
+
+    <!-- WhatsApp -->
+    <a
+    class="wa"
+
+    href="https://wa.me/6285871577428"
+
+    target="_blank">
+
+        💌 Kirim Ucapan
+
+    </a>
+
 </div>
-
-
-<button onclick="openGift()">
-🎁 Buka Hadiah
-</button>
-
-
-<div id="gift">
-❤️ Kejutan untukmu ❤️
-<br>
-Semoga hari ini menjadi hari yang paling bahagia 🎉
-</div>
-
-
-<div id="gift">
-❤️ Terima kasih sudah menjadi orang spesial ❤️
-</div>
-
-
-
-<a class="wa" 
-href="https://wa.me/6285871577428?text=🎂%20Happy%20Birthday%20Nama%20Kamu%20🎉%0A%0ASemoga%20panjang%20umur,%20sehat%20selalu,%20dan%20semua%20impianmu%20tercapai%20❤️%0A%0ADari%20website%20surprise%20ulang%20tahun">
-
-💌 Kirim Ucapan
-
-</a>
-
-</div>
-
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
