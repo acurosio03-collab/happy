@@ -158,3 +158,22 @@ function openGift(){
 
 
 }
+function playMusic(){
+
+    let music = document.getElementById("music");
+
+    music.volume = 0.5;
+
+    music.play()
+    .then(function(){
+
+        console.log("Musik berhasil jalan");
+
+    })
+    .catch(function(error){
+
+        console.log("Musik gagal:", error);
+
+    });
+
+}
